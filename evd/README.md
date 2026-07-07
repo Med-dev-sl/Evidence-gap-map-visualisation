@@ -24,6 +24,9 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 | `npm run lint` | Run ESLint across all files |
 | `npm run test` | Run all tests once |
 | `npm run test:watch` | Run tests in watch mode (re-runs on file change) |
+| `npm run storybook` | Start Storybook dev server on port 6006 |
+| `npm run storybook:build` | Build static Storybook for deployment |
+| `npm run test:a11y` | Run axe-core accessibility audit |
 
 ## Project Structure
 
@@ -67,8 +70,55 @@ src/
 - **React 19** with JSX (no TypeScript)
 - **Vite** for build tooling
 - **lucide-react** for icons
-- **vitest** + **@testing-library/react** for tests
+- **Storybook 9** for component isolation and visual review
+- **vitest** + **@testing-library/react** for unit/integration tests
+- **axe-core** + **Playwright** for accessibility auditing
 - **ESLint** for linting
+- **GitHub Actions** for CI/CD
+
+## Storybook
+
+Storybook lets you browse and test each component in isolation — without starting the full app.
+
+```bash
+npm run storybook
+```
+
+Opens [http://localhost:6006](http://localhost:6006) with a sidebar listing every component:
+
+- **EvidenceGapMap** — the full interactive grid
+- **StudyModal** — with sample data pre-loaded
+- **Legend** — the color scale
+- **ErrorBoundary** — normal state and error state
+- **SkeletonLoader** — shimmer loading animation
+
+The `@storybook/addon-a11y` addon is built in — it flags accessibility violations directly in the Storybook panel as you browse components.
+
+## Accessibility
+
+The app is tested with **axe-core** (via Playwright) for WCAG compliance:
+
+```bash
+npm run test:a11y
+```
+
+This runs a real Chromium browser against rendered components and reports any critical violations. The Storybook a11y addon also provides live feedback while browsing components.
+
+Key accessibility features:
+- ARIA labels on all interactive cells
+- Keyboard support (ESC to close modal, overlay click to dismiss)
+- Dialog role on modal with `aria-modal="true"`
+- Disabled state on empty cells (not focusable via Tab)
+- Proper heading hierarchy
+
+## CI/CD (GitHub Actions)
+
+A GitHub Actions pipeline (`.github/workflows/ci.yml`) runs automatically on every push to `main` and every pull request:
+
+1. **Lint + Test + Build** — runs on Node 20 and 22 in parallel
+2. **Accessibility audit** — builds Storybook, then runs axe-core against rendered components
+
+If any step fails, the PR is blocked from merging.
 
 ## Deployment (Vercel)
 
