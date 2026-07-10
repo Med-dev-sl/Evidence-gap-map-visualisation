@@ -1,0 +1,148 @@
+export const REVIEW_QUESTION =
+  'In adults with chronic low back pain, does exercise therapy reduce pain and improve function compared to usual care or no treatment?'
+
+const INCLUDE = 'include'
+const EXCLUDE = 'exclude'
+
+export const ABSTRACTS = [
+  {
+    id: 1,
+    title: 'Exercise therapy versus usual care for chronic low back pain: a randomised controlled trial',
+    abstract: 'We randomised 240 adults with chronic low back pain (>12 weeks) to either a 12-week supervised exercise programme or usual care. Pain intensity (VAS 0-100) and function (Roland-Morris Disability Questionnaire) were measured at baseline, 12 weeks, and 6 months. The exercise group showed significantly greater reductions in pain (mean difference -18.5, 95% CI -24.3 to -12.7) and improvement in function (mean difference -4.2, 95% CI -5.8 to -2.6) compared to usual care at 12 weeks. Benefits were maintained at 6 months.',
+    expected: INCLUDE,
+    reason: 'RCT matching all inclusion criteria: adults, chronic LBP, exercise vs usual care, pain and function outcomes.',
+  },
+  {
+    id: 2,
+    title: 'Effectiveness of Pilates-based exercise in chronic low back pain: a meta-analysis',
+    abstract: 'We conducted a systematic review and meta-analysis of randomised controlled trials examining Pilates-based exercise for chronic low back pain. Eight RCTs involving 542 participants were included. Pooled analysis showed a moderate effect on pain reduction (SMD -0.62, 95% CI -0.89 to -0.35) and functional improvement (SMD -0.51, 95% CI -0.78 to -0.24) compared to minimal intervention. Heterogeneity was moderate (I² = 45%).',
+    expected: INCLUDE,
+    reason: 'Systematic review of RCTs on exercise (Pilates) for chronic LBP, reporting pain and function outcomes.',
+  },
+  {
+    id: 3,
+    title: 'Dose-response relationship between exercise volume and outcomes in chronic low back pain',
+    abstract: 'This secondary analysis of a randomised trial investigated the dose-response relationship between exercise session attendance and pain/function outcomes in 186 adults with chronic low back pain. Participants in a 12-week exercise programme were stratified by attendance (low: <50%, moderate: 50-75%, high: >75%). High attenders showed significantly greater pain reduction (p<0.01) and functional improvement (p<0.01) compared to low attenders, suggesting a dose-response effect.',
+    expected: INCLUDE,
+    reason: 'Analyses exercise therapy in chronic LBP adults with pain and function outcomes.',
+  },
+  {
+    id: 4,
+    title: 'Long-term effects of exercise therapy for chronic low back pain: five-year follow-up of a randomised trial',
+    abstract: 'We report five-year follow-up data from a randomised trial comparing 12 weeks of exercise therapy to usual care in 210 adults with chronic low back pain. At five years, the exercise group maintained significantly lower pain scores (mean 32.4 vs 48.1, p=0.003) and better functional status (RMDQ 7.2 vs 11.8, p=0.001). Exercise adherence post-trial was associated with sustained benefits.',
+    expected: INCLUDE,
+    reason: 'Long-term follow-up of an exercise RCT for chronic LBP in adults with relevant outcomes.',
+  },
+  {
+    id: 5,
+    title: 'Group-based vs individual exercise therapy for chronic low back pain: a comparative effectiveness trial',
+    abstract: 'We compared group-based (n=95) and individual (n=97) exercise therapy in adults with chronic low back pain. Both groups received 12 weeks of exercise. Pain and function improved significantly in both groups from baseline to 12 weeks. Group-based exercise was non-inferior to individual exercise for pain (mean difference 2.1, 90% CI -3.4 to 7.6) and function (mean difference 0.8, 90% CI -1.9 to 3.5).',
+    expected: INCLUDE,
+    reason: 'RCT comparing two forms of exercise therapy for chronic LBP in adults with pain and function outcomes.',
+  },
+  {
+    id: 6,
+    title: 'Gabapentin for chronic low back pain: a randomised placebo-controlled trial',
+    abstract: 'We randomised 140 adults with chronic low back pain without radiculopathy to gabapentin (titrated to 3600 mg daily) or matched placebo for 12 weeks. The primary outcome was pain intensity. No significant difference was found between groups for pain reduction (mean difference -3.2, 95% CI -8.7 to 2.3). Secondary outcomes including function also did not differ.',
+    expected: EXCLUDE,
+    reason: 'Intervention is medication (gabapentin), not exercise therapy.',
+  },
+  {
+    id: 7,
+    title: 'Lumbar fusion surgery versus cognitive behavioural therapy for chronic low back pain',
+    abstract: 'We compared lumbar fusion surgery (n=90) to cognitive behavioural therapy (n=88) in adults with chronic low back pain. At two-year follow-up, the surgery group showed greater pain reduction (mean difference -14.2, 95% CI -20.1 to -8.3) but higher complication rates. No exercise therapy was included in either arm.',
+    expected: EXCLUDE,
+    reason: 'Neither intervention involves exercise therapy.',
+  },
+  {
+    id: 8,
+    title: 'Exercise therapy for acute low back pain: early intervention effects',
+    abstract: 'This randomised trial evaluated early exercise intervention in 180 patients with acute low back pain (<4 weeks duration). Participants received either exercise therapy or advice to stay active. At 6 weeks, pain and function were similar between groups. At 12 months, recurrence rates were lower in the exercise group (25% vs 38%, p=0.04).',
+    expected: EXCLUDE,
+    reason: 'Population is acute LBP (<4 weeks), not chronic LBP (>12 weeks).',
+  },
+  {
+    id: 9,
+    title: 'Exercise therapy in adolescents with chronic back pain: a feasibility study',
+    abstract: 'This feasibility trial assessed exercise therapy in 40 adolescents (aged 12-17) with chronic non-specific back pain. The 8-week programme showed acceptable recruitment (62%) and retention (85%) rates. Preliminary analysis suggested potential benefits for pain and function, but the study was not powered for efficacy.',
+    expected: EXCLUDE,
+    reason: 'Population is adolescents (aged 12-17), not adults.',
+  },
+  {
+    id: 10,
+    title: 'Effect of treadmill exercise on spinal pain in a rat model of intervertebral disc degeneration',
+    abstract: 'We investigated the effect of treadmill exercise on pain behaviour in 48 Sprague-Dawley rats with induced intervertebral disc degeneration. Exercise groups showed reduced mechanical hyperalgesia (p<0.05) compared to sedentary controls. Histological analysis revealed reduced inflammatory markers in the exercise group.',
+    expected: EXCLUDE,
+    reason: 'Animal study (rats), not human adults.',
+  },
+  {
+    id: 11,
+    title: 'Exercise therapy for chronic low back pain: time for a rethink?',
+    abstract: 'This commentary critically reviews the evidence base for exercise therapy in chronic low back pain. While exercise is widely recommended, effect sizes are modest and optimal exercise parameters remain unclear. The author calls for a shift toward individualised, psychologically-informed exercise approaches.',
+    expected: EXCLUDE,
+    reason: 'Commentary/opinion piece, not a primary research study or systematic review with original data.',
+  },
+  {
+    id: 12,
+    title: 'Exercise therapy for chronic neck pain: a systematic review',
+    abstract: 'We conducted a systematic review of randomised trials examining exercise therapy for chronic neck pain. Twelve RCTs involving 1,024 participants were included. Exercise therapy showed significant benefits for neck pain intensity and function compared to no treatment. Specific strengthening exercises appeared most effective.',
+    expected: EXCLUDE,
+    reason: 'Condition is chronic neck pain, not chronic low back pain.',
+  },
+  {
+    id: 13,
+    title: 'Acupuncture versus sham acupuncture for chronic low back pain',
+    abstract: 'We randomised 320 adults with chronic low back pain to either acupuncture or sham acupuncture for 8 weeks. The primary outcome was pain intensity at 8 weeks. Both groups improved, but no statistically significant difference was found between acupuncture and sham (mean difference -3.1, 95% CI -7.2 to 1.0). No exercise intervention was studied.',
+    expected: EXCLUDE,
+    reason: 'Intervention is acupuncture, not exercise therapy.',
+  },
+  {
+    id: 14,
+    title: 'Workplace ergonomic interventions for preventing low back pain: a cluster randomised trial',
+    abstract: 'We evaluated a workplace ergonomic intervention (adjustable workstations, lifting equipment) in 24 workplaces (412 workers) for primary prevention of low back pain. The intervention did not significantly reduce incident LBP compared to usual practice (HR 0.89, 95% CI 0.72-1.11). Participants were pain-free at baseline.',
+    expected: EXCLUDE,
+    reason: 'Primary prevention in pain-free workers, not intervention for chronic LBP. Intervention is ergonomics, not exercise therapy.',
+  },
+  {
+    id: 15,
+    title: 'Experiences of living with chronic low back pain: a qualitative study',
+    abstract: 'We conducted semi-structured interviews with 22 adults with chronic low back pain to explore their lived experiences and treatment journeys. Thematic analysis revealed frustration with limited treatment options, desire for more personalised care, and the importance of social support in pain management.',
+    expected: EXCLUDE,
+    reason: 'Qualitative study, no exercise intervention, no pain/function outcome data from a controlled design.',
+  },
+  {
+    id: 16,
+    title: 'Exercise therapy compared to manual therapy for chronic low back pain: systematic review and network meta-analysis',
+    abstract: 'We performed a systematic review and network meta-analysis of randomised trials comparing exercise therapy and manual therapy for chronic low back pain. Fifty-three RCTs (6,847 participants) were included. Exercise therapy was superior to manual therapy for pain reduction at short-term follow-up (SMD -0.28, 95% CI -0.45 to -0.11) and similar for functional improvement (SMD -0.12, 95% CI -0.29 to 0.05).',
+    expected: INCLUDE,
+    reason: 'Systematic review with network meta-analysis comparing exercise therapy for chronic LBP, reporting pain and function.',
+  },
+  {
+    id: 17,
+    title: 'Adherence to home exercise programs in chronic low back pain: predictors and outcomes',
+    abstract: 'This cohort study embedded within a randomised trial examined predictors of adherence to home exercise programs in 165 adults with chronic low back pain. Higher self-efficacy (OR 1.42, 95% CI 1.12-1.81) and lower baseline pain (OR 0.97, 95% CI 0.94-0.99) predicted better adherence. Better adherence was associated with greater pain reduction (r = -0.34, p=0.002) and functional improvement (r = 0.29, p=0.01) at 12 weeks.',
+    expected: INCLUDE,
+    reason: 'Examines exercise therapy adherence and outcomes in adults with chronic LBP, with pain and function data.',
+  },
+  {
+    id: 18,
+    title: 'Motor control exercise versus general exercise for chronic low back pain: a randomised trial with 12-month follow-up',
+    abstract: 'We randomised 196 adults with chronic low back pain to motor control exercise or general strengthening exercise for 12 weeks. Both groups showed significant improvements in pain and function at 12 weeks and 12 months. Motor control exercise was superior for function at 12 weeks (mean difference -2.8, 95% CI -4.5 to -1.1), but differences were not maintained at 12 months.',
+    expected: INCLUDE,
+    reason: 'RCT comparing two types of exercise therapy for chronic LBP in adults with relevant outcomes.',
+  },
+  {
+    id: 19,
+    title: 'Exercise therapy for chronic low back pain: a study protocol for a multi-centre randomised controlled trial',
+    abstract: 'This protocol describes a planned multi-centre randomised controlled trial comparing a novel exercise intervention to usual care for chronic low back pain. We aim to recruit 400 adults across five centres. Primary outcomes are pain intensity (NRS 0-10) and function (ODI) at 12 weeks. Secondary outcomes include quality of life, work participation, and cost-effectiveness. Recruitment commenced January 2025.',
+    expected: EXCLUDE,
+    reason: 'Study protocol only, no results data.',
+  },
+  {
+    id: 20,
+    title: 'Cost-effectiveness of exercise therapy compared to usual care for chronic low back pain: economic evaluation alongside a randomised trial',
+    abstract: 'We conducted a cost-utility analysis alongside a randomised trial of exercise therapy versus usual care for chronic low back pain. Health outcomes were measured in QALYs (EQ-5D-5L). The incremental cost-effectiveness ratio was £12,400 per QALY gained, with a 78% probability of being cost-effective at the £20,000/QALY threshold. Mean pain and function outcomes favoured the exercise group.',
+    expected: EXCLUDE,
+    reason: 'Primary focus is cost-effectiveness, not clinical outcomes of pain and function. While it reports pain/function, the main research question is economic, not clinical effectiveness.',
+  },
+]
