@@ -3,13 +3,10 @@ import documentRoutes from './routes/documents.js'
 
 const app = express()
 
-app.use(express.json())
+app.get('/api/health', (_req, res) => {
+  res.json({ status: 'ok' })
+})
+
 app.use('/api/documents', documentRoutes)
 
 export default app
-
-export function startServer(port = 3001) {
-  return app.listen(port, () => {
-    console.log(`Server listening on http://localhost:${port}`)
-  })
-}

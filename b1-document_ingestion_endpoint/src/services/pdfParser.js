@@ -1,7 +1,13 @@
 import pdfParse from 'pdf-parse'
 
+const SECTION_HEADER = /^(abstract|introduction|keywords|doi|corresponding|references|bibliography|acknowledgments)\b/i
+
+const SECTION_HEADER_OR_AFFILIATION = /^(abstract|introduction|doi|keywords|corresponding|department|institute|university)/i
+
 const DOI_REGEX = /10\.\d{4,}\/[-._;()/:A-Za-z0-9]+/
+
 const YEAR_REGEX = /\b(19|20)\d{2}\b/
+
 const AUTHOR_SEPARATORS = /[,;]|\band\b/
 
 export async function extractMetadata(pdfBuffer) {
@@ -26,12 +32,7 @@ function extractTitle(text) {
   const lines = text.split('\n').map((l) => l.trim())
   if (lines.length === 0) return null
 
-  const sectionStart = lines.findIndex(
-    (l) =>
-      !!l &&
-      /^(abstract|introduction|keywords|doi|corresponding|references|bibliography|acknowledgments)\b/i.test(l),
-  )
-
+  const sectionStart = lines.findIndex((l) => !!l && SECTION_HEADER.test(l))
   const candidateLines = sectionStart === -1 ? lines : lines.slice(0, sectionStart)
 
   const titleLines = []
@@ -66,10 +67,7 @@ function extractAuthors(text) {
 
   const lines = text.split('\n').map((l) => l.trim()).filter(Boolean)
 
-  const abstractIdx = lines.findIndex(
-    (l) => /^abstract\b/i.test(l),
-  )
-
+  const abstractIdx = lines.findIndex((l) => /^abstract\b/i.test(l))
   const candidateLines = abstractIdx === -1 ? lines : lines.slice(0, abstractIdx)
 
   const titleEndIdx = candidateLines.findIndex(
@@ -82,7 +80,7 @@ function extractAuthors(text) {
   const authorBlock = []
 
   for (const line of afterTitle) {
-    if (!line || /^(abstract|introduction|doi|keywords|corresponding|department|institute|university)/i.test(line)) break
+    if (!line || SECTION_HEADER_OR_AFFILIATION.test(line)) break
     if (/\d{4}/.test(line) && line.length < 10) break
     authorBlock.push(line)
   }
