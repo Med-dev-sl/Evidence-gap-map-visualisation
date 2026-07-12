@@ -31,6 +31,8 @@ a4/
 
 **Infrastructure:** None. Runs on `node --test` and `npx vite dev`. API keys optional for real AI screeners.
 
+**Deployment:** [evidence-gap-map-visualisation-bu8q.vercel.app](https://evidence-gap-map-visualisation-bu8q.vercel.app/)
+
 ---
 
 ## System 2: Evidence Gap Map (`evd/`)
@@ -55,6 +57,8 @@ The app ships with 48 pre-loaded mock studies across an 8×8 grid, representing 
 
 **Infrastructure:** None required for development. Optional: Vercel for deployment, GitHub Actions for CI.
 
+**Deployment:** [evidence-gap-map-visualisation-kohl.vercel.app](https://evidence-gap-map-visualisation-kohl.vercel.app)
+
 ---
 
 ## System 3: Document Ingestion Endpoint (`b1-document_ingestion_endpoint/`)
@@ -76,6 +80,8 @@ The app ships with 48 pre-loaded mock studies across an 8×8 grid, representing 
 **Testing:** 7 tests (3 unit, 4 integration) with mocked Prisma and pdf-parse.
 
 **Infrastructure required:** PostgreSQL database. See `b1-document_ingestion_endpoint/.env.example` for connection string format.
+
+**Deployment:** [evidence-gap-map-visualisation-op6r.vercel.app](https://evidence-gap-map-visualisation-op6r.vercel.app/)
 
 ---
 
